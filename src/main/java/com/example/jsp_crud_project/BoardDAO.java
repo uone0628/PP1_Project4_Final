@@ -15,8 +15,8 @@ public class BoardDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 
-	private final String BOARD_INSERT = "insert into BOARD (title, writer, content, category, editdate) values (?,?,?,?,?)";
-	private final String BOARD_UPDATE = "update BOARD set title=?, writer=?, content=?, category=?, editdate=? where seq=?";
+	private final String BOARD_INSERT = "insert into BOARD (title, writer, content, category) values (?,?,?,?)";
+	private final String BOARD_UPDATE = "update BOARD set title=?, writer=?, content=?, category=? where seq=?";
 	private final String BOARD_DELETE = "delete from BOARD  where seq=?";
 	private final String BOARD_GET = "select * from BOARD  where seq=?";
 	private final String BOARD_LIST = "select * from BOARD order by seq desc";
@@ -59,7 +59,7 @@ public class BoardDAO {
 			stmt.setString(2, vo.getWriter());
 			stmt.setString(3, vo.getContent());
 			stmt.setString(4, vo.getCategory());
-			stmt.setInt(6, vo.getSeq());
+			stmt.setInt(5, vo.getSeq());
 			
 			
 			System.out.println(vo.getTitle() + "-" + vo.getWriter() + "-" + vo.getContent() + "-" + vo.getSeq());
